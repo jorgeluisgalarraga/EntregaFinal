@@ -1,6 +1,6 @@
 package AbstractaAcademy;
 
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -35,8 +35,12 @@ public class HomePage {
 	@FindBy(how=How.XPATH, using="//*[@id='top'] //*[contains(text(),'Logout')]")
 	private WebElement logoutLink; //boton de logout
 	
-	public WebElement myAccountLink() {
-		return myAccountMenu;
+	public void clickOnMyAccountMenu() {
+		myAccountMenu.click();
+	}
+	
+	public void clickOnRegisterLink() {
+		Register.click();;
 	}
 
 }

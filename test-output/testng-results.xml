@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="5371" started-at="2019-10-18T11:02:50 CLST" finished-at="2019-10-18T11:02:55 CLST">
+  <suite name="Default suite" duration-ms="9158" started-at="2019-10-18T15:43:58 CLST" finished-at="2019-10-18T15:44:07 CLST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="5371" started-at="2019-10-18T11:02:50 CLST" finished-at="2019-10-18T11:02:55 CLST">
+    <test name="Default test" duration-ms="9158" started-at="2019-10-18T15:43:58 CLST" finished-at="2019-10-18T15:44:07 CLST">
       <class name="AbstractaAcademy.HomePageTest">
-        <test-method status="PASS" signature="Login()[pri:0, instance:AbstractaAcademy.HomePageTest@305fd85d]" name="Login" duration-ms="5327" started-at="2019-10-18T11:02:50 CLST" finished-at="2019-10-18T11:02:55 CLST">
+        <test-method status="PASS" signature="Login()[pri:0, instance:AbstractaAcademy.HomePageTest@305fd85d]" name="Login" duration-ms="9126" started-at="2019-10-18T15:43:58 CLST" finished-at="2019-10-18T15:44:07 CLST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->

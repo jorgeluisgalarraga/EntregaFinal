@@ -1,20 +1,12 @@
 package AbstractaAcademy;
 
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-/*
- * Esta pagina se usa para ir registrar a los nuevos usuarios, agregar productos
- * al carrito, buscar los productos desde la barra de busqueda
- * conforme avance voy a ver que mas se agregar aca.
- * mandar el dataFile con esta misma page.
- */
-public class HomePage {
-	
+public class HomePage{
+
 	WebDriver driver;
 	
 	public HomePage(WebDriver driver) {
@@ -22,25 +14,27 @@ public class HomePage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(how = How.XPATH, using="//*[contains(a,'My Account')]")
-	private WebElement myAccountMenu; //el "My Account" que esta en el menu
+	@FindBy(xpath="//a[contains(text(),'MacBook')]")
+	private WebElement macBookProduct;
 	
-	@FindBy(how = How.XPATH, using="//*[contains(a,'My Account')] //*[contains(a,'Register')]")
-	private WebElement Register; //cuando no se esta logeado es para registrarse
+	@FindBy(xpath="//div[@id='content'] //*[@class='button-group']/button[1]")
+	private WebElement AddButtonMacBook;
 	
-	@FindBy(how=How.XPATH, using="//ul[@class='dropdown-menu dropdown-menu-right']//a[contains(text(),'My Account')]")
-	private WebElement myAccountlink; //capturar este elemento y que su texto diga "My Account"
+	@FindBy(xpath="//div[@class='alert alert-success']//a[contains(text(),'MacBook')]")
+	private WebElement macBookAlert;
 	
+	@FindBy(xpath="//*[contains(text(),'shopping cart')]")
+	private WebElement cartAlert;
 	
-	@FindBy(how=How.XPATH, using="//*[@id='top'] //*[contains(text(),'Logout')]")
-	private WebElement logoutLink; //boton de logout
-	
-	public void clickOnMyAccountMenu() {
-		myAccountMenu.click();
+	//este metodo es para hacerle un assert en el test de que esta disponible
+	public String macBookProductText() {
+		return macBookProduct.getText();
 	}
 	
-	public void clickOnRegisterLink() {
-		Register.click();;
+	public void clickOnAddButtonMacBook() {
+		AddButtonMacBook.click();
 	}
-
+	
+	
 }
+

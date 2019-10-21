@@ -1,6 +1,5 @@
 package AbstractaAcademy;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -17,9 +16,8 @@ public class AccountProfilePage {
 		PageFactory.initElements(driver, this);
 	}
 
-	By createdMessage = By.xpath("//*[contains(h1,'Your Account Has Been Created!')]"); //aqui debo tomar el texto y compararlo
-	By buttonContinue = By.xpath("//*[@class='pull-right']/a"); 
 	
-	String createdAccount = "Your Account Has Been Created!";
+	
+	
 	
 }

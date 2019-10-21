@@ -1,10 +1,14 @@
 package AbstractaAcademy;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+
 
 /*
  * Esta pagina se usa para registrar a los nuevos usuarios, podria ver si puedo
@@ -38,7 +42,7 @@ public class RegisterAccountPage {
 	@FindBy(how = How.CSS, using="#input-address-1")
 	private WebElement address;
 	
-	@FindBy(how = How.CSS, using="input-city")
+	@FindBy(how = How.CSS, using="#input-city")
 	private WebElement city;
 	
 	@FindBy(how = How.CSS, using="#input-postcode")
@@ -62,8 +66,67 @@ public class RegisterAccountPage {
 	@FindBy(how=How.XPATH, using="//*[@value='Continue']")
 	private WebElement buttonContinue;
 	
-	public WebElement InputName() {
-		return firstName; 
+	public String getTitlePage() {
+		return driver.getTitle();
 	}
+	public void setFirstName(String Text) {
+		firstName.sendKeys(Text); 
+	}
+	
+	public void setLastName(String Text) {
+		lastName.sendKeys(Text);
+	}
+	
+	public void setEmail(String Text) {
+		email.sendKeys(Text);
+	}
+	
+	public void setTelephone(String Text) {
+		telephone.sendKeys(Text);	
+	}
+	
+	public void setCompany(String Text) {
+		company.sendKeys(Text);		
+	}
+	
+	public void setAddress(String Text) {
+		address.sendKeys(Text);
+	}
+	
+	public void setCity(String Text) {
+		city.sendKeys(Text);
+	}
+	
+	public void setPostCode(String Text) {
+		postCode.sendKeys(Text);
+	}
+	
+	public void selectCountry(String Text) {
+		//aqui es un select
+		Select select = new Select(country);
+		select.selectByVisibleText(Text);
+	}
+	public void selectZone(String Text) {
+		//aqui es un select
+		Select select = new Select(zone);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
+		select.selectByVisibleText(Text);
+	}
+	
+	public void setPassword(String Text) {
+		password.sendKeys(Text);
+	}
+	public void setPasswordConfirm(String Text) {
+		passwordConfirm.sendKeys(Text);
+	}
+	public void clickOnAgreeTerm() {
+		//aqui es un click
+		checkAgree.click();
+	}
+	public void clickOnContinueButton() {
+		//aqui es un click
+		buttonContinue.click();
+	}
+	
 	
 }

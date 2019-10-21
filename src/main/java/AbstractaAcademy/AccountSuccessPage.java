@@ -10,16 +10,16 @@ import org.openqa.selenium.support.PageFactory;
  * Esta pagina se usa para capturar el mensaje de que se haya creado exitosamente
  * el nuevo usuario.
  */
-public class AccountSuccesPage {
+public class AccountSuccessPage {
 
 	WebDriver driver;
 
-	public AccountSuccesPage(WebDriver driver) {
+	public AccountSuccessPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(how = How.XPATH, using="//*[contains(h1,'Your Account Has Been Created!')]")
+	@FindBy(how = How.XPATH, using="//*[@id='content'] //h1")
 	private WebElement createdMessage; //aqui debo tomar el texto y compararlo
 	
 	@FindBy(how = How.XPATH, using = "//*[@class='pull-right']/a")
@@ -29,5 +29,17 @@ public class AccountSuccesPage {
 	String createdAccount = "Your Account Has Been Created!";
 	
 	//public void 
+	
+	public String getCreatedMessage () {
+		return createdMessage.getText();
+	}
+	
+	public void clickOnContinueButton() {
+		buttonContinue.click();
+	}
+	
+	public String createdAccountMessage() {
+		return createdAccount;
+	}
 	
 }

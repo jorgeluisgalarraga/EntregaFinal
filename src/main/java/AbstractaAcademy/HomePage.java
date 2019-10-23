@@ -1,5 +1,7 @@
 package AbstractaAcademy;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,6 +28,10 @@ public class HomePage{
 	@FindBy(xpath="//*[contains(text(),'shopping cart')]")
 	private WebElement cartAlert;
 	
+	//para probar el wait
+	public WebElement prueba() {
+		return macBookProduct;
+	}
 	//este metodo es para hacerle un assert en el test de que esta disponible
 	public String macBookProductText() {
 		return macBookProduct.getText();
@@ -33,6 +39,15 @@ public class HomePage{
 	
 	public void clickOnAddButtonMacBook() {
 		AddButtonMacBook.click();
+	}
+	
+	public void clickOnShoppingCartAlert() {
+		cartAlert.click();
+	}
+	
+	public boolean alertMacBookIsPresent() {
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		return macBookAlert.isDisplayed();
 	}
 	
 	

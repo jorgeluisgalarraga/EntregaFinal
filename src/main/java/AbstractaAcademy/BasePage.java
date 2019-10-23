@@ -28,6 +28,9 @@ public class BasePage {
 	@FindBy(how = How.XPATH, using="//*[contains(a,'My Account')] //*[contains(a,'Register')]")
 	private WebElement Register; //cuando no se esta logeado es para registrarse
 	
+	@FindBy(how = How.XPATH, using="//*[contains(a,'My Account')] //*[contains(a,'Login')]")
+	private WebElement login; //cuando no se esta logeado es para logearse
+	
 	@FindBy(how=How.XPATH, using="//ul[@class='dropdown-menu dropdown-menu-right']//a[contains(text(),'My Account')]")
 	private WebElement myAccountlink; //capturar este elemento y que su texto diga "My Account"
 	
@@ -60,6 +63,10 @@ public class BasePage {
 	
 	public WebElement logo() {
 		return openCartImage;
+	}
+	
+	public void clickOnLogin() {
+		login.click();
 	}
 
 }

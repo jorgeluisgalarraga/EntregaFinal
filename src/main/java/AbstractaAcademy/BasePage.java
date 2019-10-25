@@ -1,6 +1,8 @@
 package AbstractaAcademy;
 
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,6 +22,7 @@ public class BasePage {
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 	
 	@FindBy(how = How.XPATH, using="//*[contains(a,'My Account')]")
@@ -40,6 +43,14 @@ public class BasePage {
 	
 	@FindBy(xpath="//*[@id='logo']")
 	private WebElement openCartImage;
+	
+	@FindBy(xpath="//input[@placeholder='Search']")
+	private WebElement searchBar;
+	
+	@FindBy(xpath="//*[@id='search'] //button[@type='button']")
+	private WebElement searchButton;
+	
+	
 	
 	public void clickOnMyAccountMenu() {
 		myAccountMenu.click();
@@ -67,6 +78,14 @@ public class BasePage {
 	
 	public void clickOnLogin() {
 		login.click();
+	}
+	
+	public void clickOnSearchButton() {
+		searchButton.click();
+	}
+	
+	public void setSearchProduct(String Text) {
+		searchBar.sendKeys(Text);
 	}
 
 }

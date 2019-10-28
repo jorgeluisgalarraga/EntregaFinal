@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /*
  * Esta pagina se usa para ir registrar a los nuevos usuarios, agregar productos
@@ -17,13 +18,8 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class BasePage {
 	
-	WebDriver driver;
-	
-	public BasePage(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	}
+	protected WebDriver driver;
+	public static WebDriverWait waitTo;
 	
 	@FindBy(how = How.XPATH, using="//*[contains(a,'My Account')]")
 	private WebElement myAccountMenu; //el "My Account" que esta en el menu
@@ -50,7 +46,12 @@ public class BasePage {
 	@FindBy(xpath="//*[@id='search'] //button[@type='button']")
 	private WebElement searchButton;
 	
-	
+	public BasePage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		waitTo = new WebDriverWait(driver, 10);
+	}
 	
 	public void clickOnMyAccountMenu() {
 		myAccountMenu.click();

@@ -1,34 +1,32 @@
 package AbstractaAcademy;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class CartPage {
 
-	WebDriver driver;
-	
-
+public class CartPage extends BasePage {
 	
 	@FindBy(xpath="//tbody//td[6]")
 	private WebElement costProduct;
 	
-	@FindBy(xpath="//table[@class='table table-bordered'] //tr[2]/td")
+	@FindBy(xpath="//strong[text()=\"Total:\"]/../following-sibling::td")
 	private WebElement totalCostProduct;
 	
 	@FindBy(xpath="//a[@class='btn btn-primary']")
 	private WebElement continueButton;
 	
-	private String url;
-	
-	public CartPage(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
+	JavascriptExecutor js = (JavascriptExecutor) driver;
 		
+	private String url;
+
+	//Constructor
+	public CartPage(WebDriver driver) {
+		super(driver);		
 	}
 	
-		
 	
 	public String getUrl() {
 		url = driver.getCurrentUrl();
@@ -47,6 +45,8 @@ public class CartPage {
 	}
 	
 	public void clickOnContinueButton() {
-		continueButton.click();
+		waitTo.until(ExpectedConditions.visibilityOf(continueButton));
+		js.executeScript("arguments[0].click();", continueButton);
+		
 	}
 }

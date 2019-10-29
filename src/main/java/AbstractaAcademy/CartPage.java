@@ -12,7 +12,7 @@ public class CartPage extends BasePage {
 	@FindBy(xpath="//tbody//td[6]")
 	private WebElement costProduct;
 	
-	@FindBy(xpath="//strong[text()=\"Total:\"]/../following-sibling::td")
+	@FindBy(xpath="//strong[text()='Total:']/../following-sibling::td")
 	private WebElement totalCostProduct;
 	
 	@FindBy(xpath="//a[@class='btn btn-primary']")
@@ -45,7 +45,7 @@ public class CartPage extends BasePage {
 	}
 	
 	public void clickOnContinueButton() {
-		waitTo.until(ExpectedConditions.visibilityOf(continueButton));
+		//waitTo.until(ExpectedConditions.visibilityOf(continueButton));
 		js.executeScript("arguments[0].click();", continueButton);
 		
 	}

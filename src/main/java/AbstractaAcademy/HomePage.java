@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class HomePage extends BasePage{
 
 		
-	@FindBy(xpath="//a[contains(text(),'MacBook')]")
+	@FindBy(xpath="//div[@id='content'] //a[contains(text(),'MacBook')]")
 	private WebElement macBookProduct;
 	
 	

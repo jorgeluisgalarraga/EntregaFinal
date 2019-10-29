@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import AbstractaAcademy.BaseTest;
 import junit.framework.Assert;
 
-public class CheckoutPageTest extends BaseTest {
+public class BuyingAsRegisterUserTest extends BaseTest {
 
 	@Test
 	public void login(){
@@ -32,21 +32,20 @@ public class CheckoutPageTest extends BaseTest {
 		 * ningun assertion por ahora
 		 */
 
-		// Assert.assertEquals("MacBook", home.macBookProductText());
+		Assert.assertEquals("MacBook", home.macBookProductText());
 		// basePage.setSearchProduct("MacBook");
 		// basePage.clickOnSearchButton();
 		
 		home.clickOnAddButtonMacBook();
 		
-		Assert.assertEquals(true, home.alertMacBookIsPresent());
+		//cierta redundancia aqui y el assert de abajo Assert.assertTrue(home.alertMacBookIsPresent());
+		
 
-		// home.webElementIsPresent(home.getMacBookAlert());
 
 		Assert.assertEquals(true, home.webElementIsPresent(home.getCartAlert()));
 		// home.webElementIsPresent(home.getCartAlert());
 		home.clickOnShoppingCartAlert();
 
-		System.out.println("se agrego la mac");
 		// Assert.assertEquals(driver.getCurrentUrl(), cart.getUrl());
 		Assert.assertEquals("http://opencart.abstracta.us/index.php?route=checkout/cart", cart.getUrl());
 
@@ -71,7 +70,9 @@ public class CheckoutPageTest extends BaseTest {
 		
 		checkout.clickOnMyAccountMenu();
 		checkout.clickOnLogoutLink();
+		
 		checkout.clickOnMyAccountMenu();
+		Assert.assertTrue(home.registerLinkText().equalsIgnoreCase("Register"));
 
 		
 

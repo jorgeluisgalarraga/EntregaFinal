@@ -18,7 +18,7 @@ public class CheckoutPage extends BasePage {
 	@FindBy(xpath="//div[@class='alert alert-warning']")
 	private WebElement alertPayment;
 	
-	@FindBy(xpath="textarea[@name='comment']")
+	@FindBy(xpath="//textarea[@name='comment']")
 	private WebElement commentsArea;
 	
 	@FindBy(xpath="//input[@name='agree']")
@@ -50,7 +50,7 @@ public class CheckoutPage extends BasePage {
 	}
 	
 	public void setCommentsToOrder(String Text) {
-		waitTo.until(ExpectedConditions.visibilityOf(commentsArea));
+		//waitTo.until(ExpectedConditions.visibilityOf(commentsArea));
 		commentsArea.sendKeys(Text);
 	}
 	
@@ -59,7 +59,8 @@ public class CheckoutPage extends BasePage {
 	}
 	
 	public void clickOnContinueMethod() {
-		buttonContinueMethod.click();
+		js.executeScript("arguments[0].click()", buttonContinueMethod);
+		//buttonContinueMethod.click();
 	}
 	
 	public boolean alertMethodIsPresent() {

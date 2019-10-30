@@ -12,8 +12,8 @@ public class BuyingAsRegisterUserTest extends BaseTest {
 	public void login(){
 		HomePage home = new HomePage(driver);
 		LoginPage login = new LoginPage(driver);
-		CartPage cart = new CartPage(driver);
-		CheckoutPage checkout = new CheckoutPage(driver);
+		CartPage cartPage = new CartPage(driver);
+		CheckoutPage checkoutPage = new CheckoutPage(driver);
 
 		
 		basePage.clickOnMyAccountMenu();
@@ -46,32 +46,34 @@ public class BuyingAsRegisterUserTest extends BaseTest {
 		// home.webElementIsPresent(home.getCartAlert());
 		home.clickOnShoppingCartAlert();
 
-		// Assert.assertEquals(driver.getCurrentUrl(), cart.getUrl());
-		Assert.assertEquals("http://opencart.abstracta.us/index.php?route=checkout/cart", cart.getUrl());
+		Assert.assertEquals(driver.getCurrentUrl(), cartPage.getUrl());
+		//Assert.assertEquals("http://opencart.abstracta.us/index.php?route=checkout/cart", cartPage.getUrl());
 
-		Assert.assertEquals(cart.getCostProduct(), cart.getTotalCostProduct());
+		Assert.assertEquals(cartPage.getCostProduct(), cartPage.getTotalCostProduct());
 
-		cart.clickOnContinueButton();
+		cartPage.clickOnContinueButton();
 		
-		checkout.clickOnContinuePayment();
+		checkoutPage.clickOnContinuePayment();
 		
-		checkout.setCommentsToOrder("Prueba de pago, deberia devolver un mensaje de error");
+		Assert.assertTrue(checkoutPage.alertPaymentIsPresent());
+		
+		checkoutPage.setCommentsToOrder("Prueba de pago, deberia devolver un mensaje de error");
 		
 		//Validar que este este mensaje presente: Warning: No Payment options are available. 
 		//Please contact us for assistance!
 		
-		checkout.clickOnTermsConditions();
+		checkoutPage.clickOnTermsConditions();
 		
-		checkout.clickOnContinueMethod();
+		checkoutPage.clickOnContinueMethod();
+		
 		
 		//validar mensaje presente
-		//Capturar la alerta de Warning: Payment method required!
-		//×
+		Assert.assertTrue(checkoutPage.alertMethodIsPresent());
 		
-		checkout.clickOnMyAccountMenu();
-		checkout.clickOnLogoutLink();
+		checkoutPage.clickOnMyAccountMenu();
+		checkoutPage.clickOnLogoutLink();
 		
-		checkout.clickOnMyAccountMenu();
+		checkoutPage.clickOnMyAccountMenu();
 		Assert.assertTrue(home.registerLinkText().equalsIgnoreCase("Register"));
 
 		

@@ -4,7 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+
 
 
 public class CheckoutPage extends BasePage {
@@ -42,7 +42,7 @@ public class CheckoutPage extends BasePage {
 	
 	public void clickOnContinuePayment() {
 		js.executeScript("arguments[0].click()", buttonContinuePayment);
-		//buttonContinuePayment.click();
+		
 	}
 	
 	public boolean alertPaymentIsPresent() {
@@ -50,7 +50,6 @@ public class CheckoutPage extends BasePage {
 	}
 	
 	public void setCommentsToOrder(String Text) {
-		//waitTo.until(ExpectedConditions.visibilityOf(commentsArea));
 		commentsArea.sendKeys(Text);
 	}
 	
@@ -60,7 +59,7 @@ public class CheckoutPage extends BasePage {
 	
 	public void clickOnContinueMethod() {
 		js.executeScript("arguments[0].click()", buttonContinueMethod);
-		//buttonContinueMethod.click();
+		
 	}
 	
 	public boolean alertMethodIsPresent() {

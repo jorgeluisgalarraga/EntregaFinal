@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import junit.framework.Assert;
 
-public class HomePageTest extends BaseTest {
+public class RegisteringANewUserTest extends BaseTest {
 
 	@Test
 	public void Login() {

@@ -1,5 +1,6 @@
 package AbstractaAcademy;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -25,7 +26,8 @@ public class HomePage extends BasePage{
 	@FindBy(css=".alert-success [href$='route=checkout/cart']")
 	private WebElement cartAlert;
 	
-	
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	//JavascriptExecutor js = (JavascriptExecutor) driver;
 	public HomePage(WebDriver driver) {
 		super(driver);
 	}
@@ -36,8 +38,9 @@ public class HomePage extends BasePage{
 	}
 	
 	public void clickOnAddButtonMacBook() {
-		Actions action = new Actions(driver);
-		action.moveToElement(AddButtonMacBook).click().build().perform();
+		//Actions action = new Actions(driver);
+		//action.moveToElement(AddButtonMacBook).click().build().perform();
+		js.executeScript("arguments[0].click();", AddButtonMacBook);
 		//AddButtonMacBook.click();
 	}
 	

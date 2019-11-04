@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="16817" started-at="2019-10-29T13:43:31Z" finished-at="2019-10-29T13:43:47Z">
+  <suite name="Default suite" duration-ms="20370" started-at="2019-11-03T23:17:24Z" finished-at="2019-11-03T23:17:45Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="16817" started-at="2019-10-29T13:43:31Z" finished-at="2019-10-29T13:43:47Z">
-      <class name="AbstractaAcademy.CheckoutPageTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:AbstractaAcademy.CheckoutPageTest@31610302]" name="setUp" is-config="true" duration-ms="6100" started-at="2019-10-29T13:43:31Z" finished-at="2019-10-29T13:43:37Z">
+    <test name="Default test" duration-ms="20370" started-at="2019-11-03T23:17:24Z" finished-at="2019-11-03T23:17:45Z">
+      <class name="AbstractaAcademy.BuyingAsRegisterUserTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:AbstractaAcademy.BuyingAsRegisterUserTest@6fc6f14e]" name="setUp" is-config="true" duration-ms="8113" started-at="2019-11-03T23:17:24Z" finished-at="2019-11-03T23:17:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="login()[pri:0, instance:AbstractaAcademy.CheckoutPageTest@31610302]" name="login" duration-ms="10701" started-at="2019-10-29T13:43:37Z" finished-at="2019-10-29T13:43:47Z">
+        <test-method status="PASS" signature="login()[pri:0, instance:AbstractaAcademy.BuyingAsRegisterUserTest@6fc6f14e]" name="login" duration-ms="12223" started-at="2019-11-03T23:17:33Z" finished-at="2019-11-03T23:17:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:AbstractaAcademy.CheckoutPageTest@31610302]" name="tearDown" is-config="true" duration-ms="0" started-at="2019-10-29T13:43:47Z" finished-at="2019-10-29T13:43:47Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:AbstractaAcademy.BuyingAsRegisterUserTest@6fc6f14e]" name="tearDown" is-config="true" duration-ms="0" started-at="2019-11-03T23:17:45Z" finished-at="2019-11-03T23:17:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- AbstractaAcademy.CheckoutPageTest -->
+      </class> <!-- AbstractaAcademy.BuyingAsRegisterUserTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
